@@ -11,5 +11,8 @@ router.post('/forgot', userCtrl.forgotPassword)
 router.post('/reset', auth, userCtrl.resetPassword)
 router.get('/info', auth, userCtrl.getUserInfo)
 router.get('/all', auth, adminAuth, userCtrl.getAllUserInfo)
+router.get('/logout', userCtrl.logout)
+router.patch('/update', auth, userCtrl.updateUser)
+router.patch('/update_role/:id', auth, adminAuth, userCtrl.updateRole)
 
 module.exports = router

@@ -116,7 +116,6 @@ const userCtrl = {
 
             const access_token = createAccessToken({id: user._id})
             const url = `${CLIENT_URL}/user/reset/${access_token}`
-
             sendMail(email, url)
             res.json({msg: "Re-send the password, Please check your email"})
         } catch(err) {
@@ -147,10 +146,41 @@ const userCtrl = {
     },
     getAllUserInfo: async (req, res) => {
         try {
-            console.log(req)
-            // const users = await Users.find().select('-password')
-            // return res.json(users)
+            // console.log(req)
+            const users = await Users.find().select('-password')
+            return res.json(users)
         } catch(err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    logout: async (req, res) => {
+        try {
+            res.clearCookie('refreshtoken', {path: 'user/refresh_token'})
+            return res.json({msg: "Logged out."})
+        } catch(err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    updateUser: async (req, res) => {
+        try {
+            const {name, avatar} = req.body
+            await Users.findOneAndUpdate({_id: req.user.id}, {
+                name, avatar
+            })
+            return res.json({msg: "Updated successfully!"})
+        } catch(err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    updateRole: async (req, res) => {
+        try {
+            const {role} = req.body
+            // console.log(req.user.id)
+            await Users.findOneAndUpdate({_id: req.user.id}, {
+                role
+            })
+            return res.json({msg: "Update role!"})
+        } catch (err) {
             return res.status(500).json({msg: err.message})
         }
     }

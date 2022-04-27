@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "dc7297c8-6a2c-4084-987b-049657e0322d",
+		"name": "Invoice Scan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nisargbhavsar24@gmail.com\",\r\n    \"password\": \"Rspl@1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/login",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nisargbhavsar24@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/forgot",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"forgot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDA0OWFjNTU0NDdhNDRmNzVhZWJhZiIsImlhdCI6MTY1MDI4MzU0NiwiZXhwIjoxNjUwMjg0NDQ2fQ.JloD13UvG6a1vx_8Tdej1xhMeBQvRGBpfSR-kq5NHHU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"Rspl@1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/reset",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/logout",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/refresh_token",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"refresh_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDA0OWFjNTU0NDdhNDRmNzVhZWJhZiIsImlhdCI6MTY1MDk2NzkxMCwiZXhwIjoxNjUwOTY4ODEwfQ.MZzh0xZ37pwcLZ4IXmk86V8mXjvyGtMHcBcTBvfNuCo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/info",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDA0OWFjNTU0NDdhNDRmNzVhZWJhZiIsImlhdCI6MTY1MDk2NzkxMCwiZXhwIjoxNjUwOTY4ODEwfQ.MZzh0xZ37pwcLZ4IXmk86V8mXjvyGtMHcBcTBvfNuCo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nisarg\",\r\n    \"avatar\": \"https://res.cloudinary.com/roomies-coder/image/upload/v1640265212/samples/people/smiling-man.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/update",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User update role",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDA0OWFjNTU0NDdhNDRmNzVhZWJhZiIsImlhdCI6MTY1MDk3MjgzNSwiZXhwIjoxNjUwOTczNzM1fQ.IzHdttnnNeM0rFLG59yFnM652hEHCZUWm_tMFWmd9lw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{INS_BASE_URL}}/user/update_role/61d049ac55447a44f75aebaf",
+					"host": [
+						"{{INS_BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"update_role",
+						"61d049ac55447a44f75aebaf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
